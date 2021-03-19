@@ -1,0 +1,21 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: echotest-ingress
+  namespace: echotest
+  labels:
+    app.kubernetes.io/name: echotest
+    app.kubernetes.io/part-of: echotest
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /foo
+        backend:
+          serviceName: foo-service
+          servicePort: 5678
+      - path: /bar
+        backend:
+          serviceName: bar-service
+          servicePort: 5678
