@@ -12,10 +12,16 @@ spec:
   - http:
       paths:
       - path: /foo
+        pathType: Prefix
         backend:
-          serviceName: foo-service
-          servicePort: 5678
+          service:
+            name: foo-service
+            port:
+              number: 5678
       - path: /bar
+        pathType: Prefix
         backend:
-          serviceName: bar-service
-          servicePort: 5678
+          service:
+            name: bar-service
+            port:
+              number: 5678
